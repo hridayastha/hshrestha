@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hridayastha.github.io/hshrestha/sitemap.xml
+Sitemap: https://hridayastha.github.io/sitemap.xml
