@@ -7,9 +7,10 @@ subtitle: Molecular and Cell Biologist (Cancer Researcher)
 
 profile:
   align: right
-  image: prof_pic4.jpg
-  image_circular: false # crops the image to make it circular
+  image: prof_pic5.jpg
+  image_circular: true # crops the image to make it circular
   more_info: >
+    <center><p>Postdoctoral Associate</p><p>Stony Brook University</p><p>Stony Brook, New York</p></center>
     <center>
       
       <p>
