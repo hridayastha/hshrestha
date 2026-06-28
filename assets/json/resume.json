@@ -1,17 +1,17 @@
 {
   "basics": {
-    "name": "Hridaya Shrestha",
-    "label": "Cancer Biologist",
+    "name": "<b>Hridaya Shrestha</b>",
+    "": "<i>Molecular and Cell Biologist (Cancer Researcher)</i>",
     "image": "",
-    "email": "hridayastha@gmail.com",
+    "email": "hridaya.shrestha@stonybrookmedicine.edu",
     "phone": "",
-    "summary": "Detail-oriented and passionate cancer researcher with over 10 years of experience in molecular and cell biology. Adaptive team player with in-depth knowledge of cancer cell signaling and genetic mouse models.",
+    "summary": "PhD graduate with over six years of experience in pancreatic and breast cancer research using genetically engineered mouse models. Skilled in molecular and cell biology techniques for analyzing gene and protein expression, with emphasis on cancer cell signaling pathways. Proven track record of developing and executing research projects, publishing research papers, and presenting at conferences.",
     "location": {
-      "address": "61 S Main St Apt 2",
-      "postalCode": "06457",
-      "city": "Middletown",
+      "address": "1326 Orchid Cir",
+      "postalCode": "11713",
+      "city": "Bellport",
       "countryCode": "US",
-      "region": "Connecticut"
+      "region": "New York"
     },
     "profiles": [
       {
@@ -23,6 +23,16 @@
   },
   "work": [
     {
+      "name": "Department of Pathology, Stony Brook Medicine",
+      "location": "Stony Brook, NY, USA",
+      "position": "Postdoctoral Research Associate",
+      "url": "",
+      "startDate": "2026",
+      "endDate": "",
+      "summary": "<b>Running project:</b> The role of Gα13 signaling in modulating the tumor immune microenvironment and drug resistance",
+      "highlights": []
+    },
+    {
       "name": "School of Medicine, Wayne State University",
       "location": "Detroit, USA",
       "position": "Postdoctoral Research Associate",
@@ -31,14 +41,13 @@
       "endDate": "2024",
       "summary": "Studied the biological signiﬁcance of growth-regulatory signaling networks and proto-oncogenes in normal development and tumorigenesis of the mammary gland and pancreas",
       "highlights": [
-        "Conducted research on the role of JAK1 in pancreatic cancer initiation and progression as part of an NIH-funded project by applying molecular and cellular biology techniques related to DNA/RNA/protein analysis, using cell lines and genetically engineered mouse models, successfully completing the project and publishing one first-author research paper and one co-authored review paper.",
-        "Identified critical roles of JAK/STAT signaling in postnatal pancreas development and pancreatitis by employing a genetically engineered mouse model to analyze the pancreas at various developmental stages, both prenatal and postnatal, with a first-authored manuscript detailing these findings currently in preparation.",
-        "Initiated and established the pancreatic explant culture in Wagner's lab, becoming the first to do so after training at Dr. Howard Crawford’s lab at Henry Ford Health in Michigan, USA, and subsequently trained others in the procedure.",
-        "Conducted drug assays for a JAK1 inhibitor using pancreatic cancer cell lines to study JAK/STAT signaling in cancer cell proliferation and in explant cultures to evaluate JAK1’s role in acinar-to-ductal metaplasia. This research contributed to an NIH grant submission, with results currently pending.",
-        "Performed bioinformatic analysis of bulk and single-cell RNA sequencing datasets for projects focused on pancreas and mammary gland development, leading to valuable insights into the role of JAK/STAT signaling in developmental processes.",
-        "Collaborated and assisted in a project focused on the biological significance of growth-regulatory signaling networks and proto-oncogenes in normal mammary gland development and tumorigenesis, resulting in the publication of four co-authored research papers.",
-        "Guided and trained interns and graduate students in conducting laboratory experiments using molecular biology, cell biology, immunological, and in-vivo animal techniques, fostering skill development and ensuring high-quality research outcomes.",
-        "Reviewed over 30 articles on cancer biology, encompassing molecular mechanisms, treatment strategies, and emerging research trends, for prestigious scientific journals, thereby enhancing the quality and dissemination of cutting-edge research."
+        "Developed and analyzed genetically engineered mouse models of pancreatic cancer, including long-term phenotypic studies, derivation of primary tumor cell lines, and downstream molecular analyses (RT-qPCR, RNA-Seq, Western blot, ELISA).",
+        "Designed and executed CRISPR knockouts, siRNA/shRNA knockdowns, and retroviral/lentiviral-based gene overexpression experiments in pancreatic cancer cell lines.",
+        "Performed in vitro cellular assays (viability, proliferation, migration, spheroid formation) and in vivo studies (CDX/PDX tumor implantation, growth assessment) to analyze JAK1/STAT3 signaling in cancer progression.",
+        "Performed histological analyses, including immunohistochemistry and immunofluorescence (IHC/IF) staining on mouse pancreatic tissues and quantitative imaging for comparative pathology.",
+        "Established the setup for pancreatic acinar cell culture to assess JAK1’s role in acinar-to-ductal metaplasia (ADM).",
+        "Performed bulk RNA-seq studies, including RNA extraction and bioinformatic analysis, to determine the role of JAK1 in pancreas development, acute and chronic pancreatitis, and cancer progression.",
+        "Mentored trainees and contributed to publications and lab operations, including first-author and co-authored papers, collaborative projects on mammary gland development and tumorigenesis, and laboratory management."
       ]
     },
     {
@@ -50,9 +59,9 @@
       "endDate": "2017",
       "summary": "Studied the factors affecting adherens junction complexes and function of δ-catenin in cancer and Alzheimer's disease",
       "highlights": [
-        "Conducted extensive molecular biology experiments to investigate factors affecting adherens junction complexes and the function of δ-catenin in cancer, contributing to an enhanced understanding of cancer progression and resulting in three first-authored peer-reviewed publications, two co-authored papers, and multiple conference presentations, demonstrating effective communication and presentation skills.",
-        "Collaborated with multidisciplinary teams on projects investigating the role of δ-catenin in Alzheimer’s disease, enhancing understanding of its involvement and contributing valuable insights to interdisciplinary research efforts.",
-        "Supported faculty in teaching undergraduate courses through conducting proctoring of exams, grading assessments, and supervising practical classes, facilitating effective course administration and enriching the educational experience for students."
+        "Performed cell culture and molecular techniques, including molecular cloning, Western blot, immunoprecipitation, cell surface protein biotinylation, RT-PCR, and cell-based functional assays.",
+        "Studied trafficking of adherens junction proteins in cancer cells using live and fixed cell confocal microscopy.",
+        "Led three independent research projects on adherens junction regulation, resulting in three first-author publications, two co-authored papers, and multiple conference presentations."
       ]
     },
     {
@@ -71,7 +80,7 @@
       "position": "Lecturer",
       "startDate": "2008",
       "endDate": "2010",
-      "summary": "Mentored and supervised Diploma in Pharmacy students by conducting theory classes and overseeing practical lessons in Pharmaceutical Chemistry and Pharmacology for 2nd and 3rd-year students, each class containing 35+ students, resulting in a 100% pass rate in board exams for each taught subject and significantly enhancing their understanding and practical skills.",
+      "summary": "Mentored and supervised Diploma in Pharmacy (CTEVT Board of Nepal) students through conducting theory classes and overseeing practical lessons in Pharmacology.",
       "highlights": []
     }
   ],
