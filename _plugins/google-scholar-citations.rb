@@ -8,7 +8,7 @@ end
 
 module Jekyll
   class GoogleScholarCitationsTag < Liquid::Tag
-    Citations = {}
+    Citations = { }
 
     def initialize(tag_name, params, tokens)
       super
@@ -18,64 +18,59 @@ module Jekyll
     end
 
     def render(context)
-      article_id = context[@article_id.strip] || @article_id.strip
-      scholar_id = context[@scholar_id.strip] || @scholar_id.strip
+      article_id = context[@article_id.strip]
+      scholar_id = context[@scholar_id.strip]
       article_url = "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=#{scholar_id}&citation_for_view=#{scholar_id}:#{article_id}"
 
       begin
-        # If the citation count has already been fetched, return it
-        if GoogleScholarCitationsTag::Citations[article_id]
-          return GoogleScholarCitationsTag::Citations[article_id]
-        end
-
-        # Sleep to mitigate rate limiting
-        sleep(rand(5.0..10.0))
-
-        headers = {
-          "User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-          "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-          "Accept-Language" => "en-US,en;q=0.9",
-          "Cache-Control" => "max-age=0"
-        }
-
-        doc = Nokogiri::HTML(URI.open(article_url, headers))
-
-        citation_count = 0
-
-        # Look for the "Cited by" link inside the fields column
-        # Google Scholar typically uses links containing "cites=" for the count
-        cited_by_link = doc.xpath("//a[contains(@href, 'cites=')]").first
-
-        if cited_by_link
-          cited_by_text = cited_by_link.text # e.g., "Cited by 142"
-          matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
-          if matches
-            citation_count = matches[1].gsub(",", "").to_i
+          # If the citation count has already been fetched, return it
+          if GoogleScholarCitationsTag::Citations[article_id]
+            return GoogleScholarCitationsTag::Citations[article_id]
           end
-        else
-          # Fallback: Check if the text actually just displays an integer in the right field element
-          # If Google returns a CAPTCHA page, this code block won't find anything either
-          div_field = doc.css('.gsc_oci_value a').first
-          if div_field && div_field.text =~ /\d+/
-            citation_count = div_field.text.to_i
+
+          # Sleep for a random amount of time to avoid being blocked
+          sleep(rand(1.5..3.5))
+
+          # Fetch the article page
+          doc = Nokogiri::HTML(URI.open(article_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+
+          # Attempt to extract the "Cited by n" string from the meta tags
+          citation_count = 0
+
+          # Look for meta tags with "name" attribute set to "description"
+          description_meta = doc.css('meta[name="description"]')
+          og_description_meta = doc.css('meta[property="og:description"]')
+
+          if !description_meta.empty?
+            cited_by_text = description_meta[0]['content']
+            matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
+
+            if matches
+              citation_count = matches[1].sub(",", "").to_i
+            end
+
+          elsif !og_description_meta.empty?
+            cited_by_text = og_description_meta[0]['content']
+            matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
+
+            if matches
+              citation_count = matches[1].sub(",", "").to_i
+            end
           end
-        end
 
-        # Humanize the number (e.g., 1.2K)
-        formatted_count = Helpers.number_to_human(citation_count, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' })
-        # Clean up trailing decimals if exact (e.g., "1.0K" -> "1K")
-        formatted_count = formatted_count.sub(/\.0(?=[KMB])/, '')
+        citation_count = Helpers.number_to_human(citation_count, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' })
 
-      rescue OpenURI::HTTPError => e
-        formatted_count = "N/A"
-        puts "HTTP Error fetching citation count for #{article_id}: #{e.message} - Google might be blocking you."
       rescue Exception => e
-        formatted_count = "N/A"
+        # Handle any errors that may occur during fetching
+        citation_count = "N/A"
+
+        # Print the error message including the exception class and message
         puts "Error fetching citation count for #{article_id}: #{e.class} - #{e.message}"
       end
 
-      GoogleScholarCitationsTag::Citations[article_id] = formatted_count
-      return "#{formatted_count}"
+
+      GoogleScholarCitationsTag::Citations[article_id] = citation_count
+      return "#{citation_count}"
     end
   end
 end
