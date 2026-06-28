@@ -29,10 +29,15 @@ module Jekyll
           end
 
           # Sleep for a random amount of time to avoid being blocked
-          sleep(rand(5.0..10.5))
+          sleep(rand(2.0..5.0))
 
           # Fetch the article page
-          doc = Nokogiri::HTML(URI.open(article_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+          headers = {
+          "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          "Accept" => "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+          "Accept-Language" => "en-US,en;q=0.5"
+          }
+          doc = Nokogiri::HTML(URI.open(article_url, headers))
 
           # Attempt to extract the "Cited by n" string from the meta tags
           citation_count = 0
